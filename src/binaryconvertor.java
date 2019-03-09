@@ -1,3 +1,4 @@
+import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
@@ -24,34 +25,65 @@ public static void main(String[] args) {
 	frame.pack();
 	frame.add(text);
 	frame.pack();
-	frame.add(answer);
+	Component input = frame.add(answer);
 	frame.pack();
-	frame.add(button);
-	frame.addMouseListener((MouseListener) button);
+	String input1 = input.toString();
+	//button.addMouseListener(input1);
+	//frame.addMouseListener(input);
 	frame.pack();
+	
+	frame.add(button, -1);
+
+	
+	MouseListener(input1);
 	
 	
 	
 }
 
-String convert(String input) {
-    if(input.length() != 8){
+public static void MouseListener(String input1)
+{
+	convert(input1);
+}
+
+static String convert(String input) 
+{
+    if(input.length() != 8)
+    {
          JOptionPane.showMessageDialog(null, "Enter 8 bits, silly!!!");
          return "-";
     }
     String binary = "[0-1]+";    //must contain numbers in the given range
-    if (!input.matches(binary)) {
+    if (!input.matches(binary)) 
+    {
          JOptionPane.showMessageDialog(null, "Binary can only contain 1s or 0s, silly!!!");
          return "-";
     }
-    try {
+    try 
+    {
          int asciiValue = Integer.parseInt(input, 2);
          char theLetter = (char) asciiValue;
          return "" + theLetter;
-    } catch (Exception e) {
+    } catch (Exception e)
+    {
          JOptionPane.showMessageDialog(null, "Enter a binary, silly!!!");
          return "-";
     }
 }
-
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
